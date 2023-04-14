@@ -42,8 +42,32 @@
 
         <div class="list-container">
 
-            <ul class="tasks-list">
-                <li></li>
+            <div v-if="tasks.length === 0" class="accomplished">
+                <h2>Complimenti! Non hai più Task da portare a termine!</h2>
+                <i class="fa-solid fa-champagne-glasses fa-beat-fade fa-xl" style="color: #E5412E;"></i>
+            </div>
+            
+
+            <ul v-else class="tasks-list">
+
+                <li
+                    v-for="task in tasks"
+                    :class="{'done' : task.done}"
+                    @click="task.done = !task.done"
+                >
+
+                    <span>{{task.text}}</span>
+                    <i
+                        class="fa-solid fa-trash"
+                        @click.stop="deleteTask(index)"
+                        @mouseover="shake = true"
+                        :class="shake ? 'fa-shake' : null"
+                        @mouseleave="shake = false"
+                    >
+                    </i>
+
+                </li>
+
             </ul>
 
         </div>
