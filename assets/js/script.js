@@ -17,17 +17,45 @@ createApp ({
                     done: false
                 },
             ],
-            shake: false,
+            //flag che determina il movimento dell'icona del cestino con valore booleano
+            shake           : false,
+            newTask         : '',
+            errorMessage    : ''
         }
     },
 
     methods: {
+        // con questa funzione si prende l'index delle tasks
+        // .splice si cancella la singola task cliccando sull'apposita icona
         deleteTask (index){
-            this.tasks.splice(index, 1)
+            if (this.tasks[index].done) {
+                this.tasks.splice(index, 1)
+            } else {
+                this.errorMessage = 'Per eliminare il Task devi prima averlo completato'
+            }
+        },
+
+        // con questa funzione si crea un nuovo task e lo si "butta" nell'array tasks
+        createTask (){
+            // si imposta la condizione che il testo della nuova task deve essere di almeno
+            // 5 caratteri - se è così allora si crea l'oggetto con done false di default
+            if(this.newTask.length > 4) {
+                const newTask = {
+                    text: this.newTask,
+                    done: false
+                }
+                // con unshift si pusha la task creata e la si mette in cima all'array (push la mette in fondo)
+                this.tasks.unshift(newTask);
+                //si resetta il campo dell'input
+                this.newTask = '';
+                //si resetta il messaggio di errore
+                this.errorMessage = '';
+            } else {
+                // qualora il testo del nuovo task abbia meno di 5 caratteri viene 
+                // stampato in pagina il messaggio di errore
+                this.errorMessage = 'Attenzione, il testo deve contenere almeno 5 caratteri!'
+            }
         },
     },
 
-    mounted (){
-        
-    }
 }).mount('#app')
