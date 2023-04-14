@@ -54,7 +54,7 @@ createApp ({
                 this.errorMessageHide ('Attenzione, il testo deve contenere almeno 5 caratteri!')
             }
         },
-        // con questa funzione si fa si che qualsiasi messaggio di errore 
+        // con questa funzione fa si che qualsiasi messaggio di errore 
         // scompaia dopo 2 secondi
         errorMessageHide (error) {
             this.errorMessage = error;
