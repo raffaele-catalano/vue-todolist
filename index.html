@@ -30,12 +30,15 @@
         </div>
 
         <div class="input-area">
-            <input type="text" placeholder="Aggiungi un nuovo Task">
-            <button>Aggiungi</button>
+            <!-- aggiungendo il .trim al v-model si impedisce di contare gli spazi come caratteri
+            il keyup.enter fa in modo che si possa aggiungere il nuovo Task anche premendo enter -->
+            <input v-model.trim="newTask" @keyup.enter="createTask" type="text" placeholder="Aggiungi un nuovo Task">
+            <!-- il click sul bottone permette di aggiungere il nuovo task richiamando la funzione createTask -->
+            <button @click="createTask">AGGIUNGI</button>
         </div>
 
         <div class="error-message-container">
-            <span></span>
+            <h3>{{errorMessage}}</h3>
         </div>
 
         <!-- --- -->
@@ -58,7 +61,7 @@
                 gli si aggiunge dinamicamente done
                 al click si crea il toggle che permette di dare e togliere il done -->
                 <li
-                    v-for="task in tasks"
+                    v-for="(task, index) in tasks"
                     :class="{'done' : task.done}"
                     @click="task.done = !task.done"
                 >
