@@ -23,6 +23,7 @@ body {
 
 .input-area {
     text-align: center;
+    margin-bottom: 35px;
 }
 
 .input-area input {
@@ -32,6 +33,7 @@ body {
     margin-right: 25px;
     border: 2px solid #E5412E;
     background-color: #e4e4e4;
+    box-shadow: 1px 1px 6px rgba(255, 255, 255, .5);
 }
 
 .input-area button {
@@ -42,12 +44,18 @@ body {
     font-weight: bold;
     border: 2px solid white;
     cursor: pointer;
+    box-shadow: 1px 1px 5px rgba(255, 255, 255, .3);
 }
 
 .input-area button:hover {
     background-color: white;
     color: #E5412E;
     border: 2px solid #E5412E;
+}
+
+.error-message-container {
+    text-align: center;
+    color: #E5412E;
 }
 
 .list-container {
@@ -57,6 +65,7 @@ body {
     border-radius: 10px;
     background-color: #e4e4e4;
     margin-top: 30px;
+    box-shadow: 1px 1px 10px rgba(255, 255, 255, .3);
 }
 
 .accomplished {
