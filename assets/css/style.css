@@ -31,6 +31,7 @@ body {
     border-radius: 10px;
     margin-right: 25px;
     border: 2px solid #E5412E;
+    background-color: #e4e4e4;
 }
 
 .input-area button {
@@ -49,12 +50,59 @@ body {
     border: 2px solid #E5412E;
 }
 
-.container {
+.list-container {
     width: 70%;
     margin: 0 auto;
     padding: 30px;
     border-radius: 10px;
-    background-color: #F5F6F7;
+    background-color: #e4e4e4;
     margin-top: 30px;
 }
 
+.accomplished {
+    display: flex;
+    position: relative;
+}
+
+.accomplished i {
+    position: absolute;
+    top: 13px;
+    left: 600px;
+}
+
+.tasks-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    border-bottom: 1px solid #d3d3d3;
+    line-height: 50px;
+    cursor: pointer;
+    padding: 0 10px;
+    border-radius: 10px;
+}
+
+.tasks-list li:hover {
+    background-color: white;
+}
+
+.tasks-list li i {
+    color: rgb(94, 94, 94);
+}
+
+.tasks-list li.done span {
+    text-decoration: line-through;
+    margin-right: 10px;
+    position: relative;
+}
+
+.tasks-list li.done span::after {
+    content: url(../img/check-mark.png);
+    position: absolute;
+    right: -30px;
+    top: 2px;
+}
+
+.tasks-list li i:hover {
+    color: #E5412E;
+}
