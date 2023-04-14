@@ -73,6 +73,10 @@ body {
     position: relative;
 }
 
+.accomplished h2 {
+    color: #1c2941;
+}
+
 .accomplished i {
     position: absolute;
     top: 13px;
@@ -96,7 +100,7 @@ body {
 }
 
 .tasks-list li i {
-    color: rgb(94, 94, 94);
+    color: #1c2941;
 }
 
 .tasks-list li.done span {
