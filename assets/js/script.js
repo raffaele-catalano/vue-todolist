@@ -31,7 +31,7 @@ createApp ({
             if (this.tasks[index].done) {
                 this.tasks.splice(index, 1)
             } else {
-                this.errorMessage = 'Per eliminare il Task devi prima averlo completato'
+                this.errorMessageHide('Per eliminare il Task devi prima averlo completato')
             }
         },
 
@@ -48,14 +48,22 @@ createApp ({
                 this.tasks.unshift(newTask);
                 //si resetta il campo dell'input
                 this.newTask = '';
-                //si resetta il messaggio di errore
-                this.errorMessage = '';
             } else {
                 // qualora il testo del nuovo task abbia meno di 5 caratteri viene 
                 // stampato in pagina il messaggio di errore
-                this.errorMessage = 'Attenzione, il testo deve contenere almeno 5 caratteri!'
+                this.errorMessageHide ('Attenzione, il testo deve contenere almeno 5 caratteri!')
             }
         },
+        // con questa funzione si fa si che qualsiasi messaggio di errore 
+        // scompaia dopo 2 secondi
+        errorMessageHide (error) {
+            this.errorMessage = error;
+            setTimeout(() => {
+                this.errorMessage = '';
+            }, 2000)
+        }
+        //TODO: chiedere ai Tutor perchè ho dovuto passare *error* nelle parentesi
+        // della funzione
     },
 
 }).mount('#app')
