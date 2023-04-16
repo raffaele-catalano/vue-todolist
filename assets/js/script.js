@@ -26,7 +26,7 @@ createApp ({
 
     methods: {
         // con questa funzione si prende l'index delle tasks
-        // .splice si cancella la singola task cliccando sull'apposita icona
+        // .splice cancella la singola task cliccando sull'apposita icona
         deleteTask (index){
             if (this.tasks[index].done) {
                 this.tasks.splice(index, 1)
@@ -54,13 +54,13 @@ createApp ({
                 this.errorMessageHide ('Attenzione, il testo deve contenere almeno 5 caratteri!')
             }
         },
-        // con questa funzione fa si che qualsiasi messaggio di errore 
-        // scompaia dopo 2 secondi
+        // questa funzione fa si che qualsiasi messaggio di errore 
+        // scompaia dopo 3 secondi
         errorMessageHide (error) {
             this.errorMessage = error;
             setTimeout(() => {
                 this.errorMessage = '';
-            }, 2000)
+            }, 3000)
         }
         //TODO: chiedere ai Tutor perchè ho dovuto passare *error* nelle parentesi
         // della funzione
