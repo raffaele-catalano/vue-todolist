@@ -59,6 +59,10 @@ body {
     color: #E5412E;
 }
 
+.error-message-container h3{
+    text-shadow: 1px 1px 10px rgba(228, 228, 228, .4);
+}
+
 .list-container {
     width: 70%;
     margin: 0 auto;
